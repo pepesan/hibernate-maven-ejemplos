@@ -57,6 +57,9 @@ public class AppMain03 {
             if(sessionObj != null) {
                 sessionObj.close();
             }
+            if(!sessionFactoryObj.isClosed()){
+                sessionFactoryObj.close();
+            }
         }
     }
 }
