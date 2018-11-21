@@ -1,11 +1,10 @@
-package com.cursosdedesarrollo.hibernate.ejemplo01;
-
-import java.util.Date;
+package com.cursosdedesarrollo.hibernate.ejemplo06;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name = "user_table")

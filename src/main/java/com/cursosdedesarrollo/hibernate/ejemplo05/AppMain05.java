@@ -1,6 +1,4 @@
-package com.cursosdedesarrollo.hibernate.ejemplo01;
-
-import java.util.Date;
+package com.cursosdedesarrollo.hibernate.ejemplo05;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -8,18 +6,17 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-import javax.persistence.criteria.CriteriaBuilder;
+import java.math.BigDecimal;
 
-public class AppMain {
+public class AppMain05 {
 
-    static User userObj;
     static Session sessionObj;
     static SessionFactory sessionFactoryObj;
 
     private static SessionFactory buildSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
         Configuration configObj = new Configuration();
-        configObj.configure("hibernate01.cfg.xml");
+        configObj.configure("hibernate05.cfg.xml");
 
         // Since Hibernate Version 4.x, ServiceRegistry Is Being Used
         ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();
@@ -35,30 +32,24 @@ public class AppMain {
             sessionObj = buildSessionFactory().openSession();
             sessionObj.beginTransaction();
 
-            for(int i = 101; i <= 105; i++) {
-                userObj = new User();
-                userObj.setUserid(i);
-                userObj.setUsername("Editor " + i);
-                userObj.setCreatedBy("Administrator");
-                userObj.setCreatedDate(new Date());
+            DebitAccount debitAccount = new DebitAccount();
+            debitAccount.setId( 1L );
+            debitAccount.setOwner( "John Doe" );
+            debitAccount.setBalance( BigDecimal.valueOf( 100 ) );
+            debitAccount.setInterestRate( BigDecimal.valueOf( 1.5d ) );
+            debitAccount.setOverdraftFee( BigDecimal.valueOf( 25 ) );
 
-                sessionObj.save(userObj);
-                //sessionObj.persist(userObj);
+            CreditAccount creditAccount = new CreditAccount();
+            creditAccount.setId( 2L );
+            creditAccount.setOwner( "John Doe" );
+            creditAccount.setBalance( BigDecimal.valueOf( 1000 ) );
+            creditAccount.setInterestRate( BigDecimal.valueOf( 1.9d ) );
+            creditAccount.setCreditLimit( BigDecimal.valueOf( 5000 ) );
 
-            }
+            sessionObj.persist( debitAccount );
+            sessionObj.persist( creditAccount );
+
             System.out.println("\n.......Records Saved Successfully To The Database.......\n");
-            //modificación
-            userObj.setUsername("Editor " + 2000);
-            sessionObj.save(userObj);
-            System.out.println("\n.......Record Modified Successfully To The Database.......\n");
-            //borrado
-            sessionObj.delete(userObj);
-            System.out.println("\n.......Record Deleted Successfully To The Database.......\n");
-            User guardado= (User)sessionObj.get(User.class,101);
-
-            System.out.println("\n Dato Guardado: "+guardado+"\n");
-
-            
 
             // Committing The Transactions To The Database
             sessionObj.getTransaction().commit();
