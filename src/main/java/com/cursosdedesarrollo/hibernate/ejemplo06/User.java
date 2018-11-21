@@ -1,10 +1,14 @@
 package com.cursosdedesarrollo.hibernate.ejemplo06;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+
+@NamedQueries({
+        @NamedQuery(
+                name = "findUserById",
+                query = "from User u where u.userid = :user_id"
+        )
+})
 
 @Entity
 @Table(name = "user_table")
@@ -54,6 +58,8 @@ public class User {
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
+
+
 
     @Override
     public String toString() {

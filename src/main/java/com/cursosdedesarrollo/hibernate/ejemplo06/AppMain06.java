@@ -7,6 +7,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import javax.persistence.TypedQuery;
 import java.util.Date;
 import java.util.List;
 
@@ -108,6 +109,11 @@ public class AppMain06 {
             int resultado = query.executeUpdate();
             System.out.println("Rows affected: " + resultado);
 
+            //named query
+            query = sessionObj.getNamedQuery("findUserById")
+                    .setString("user_id", "101");
+            results = query.list();
+            System.out.println("\n"+results+"\n");
 
 
             // Committing The Transactions To The Database
