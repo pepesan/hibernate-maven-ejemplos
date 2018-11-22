@@ -8,6 +8,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
 import java.util.Date;
+import java.util.List;
 
 public class AppMain02 {
 
@@ -37,7 +38,10 @@ public class AppMain02 {
 
 
             phone = new Phone();
+            phone.setNumber("123345");
             phoneDetails = new PhoneDetails();
+            phoneDetails.setProvider("O2");
+            phoneDetails.setTechnology("5G");
             phone.setDetails(phoneDetails);
             sessionObj.save(phoneDetails);
             sessionObj.save(phone);
@@ -45,6 +49,10 @@ public class AppMain02 {
 
             // Committing The Transactions To The Database
             sessionObj.getTransaction().commit();
+            sessionObj.beginTransaction();
+            List<Phone> listado =sessionObj.createQuery("from phones").list();
+            sessionObj.getTransaction().commit();
+            System.out.println("\n"+listado+"\n");
         } catch(Exception sqlException) {
             if(null != sessionObj.getTransaction()) {
                 System.out.println("\n.......Transaction Is Being Rolled Back.......");

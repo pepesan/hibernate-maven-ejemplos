@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name = "Phone3")
+@Entity(name = "Phone23")
 public class Phone {
 
     @Id

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "Person4")
+@Entity(name = "Person2")
 public
 class Person {
 

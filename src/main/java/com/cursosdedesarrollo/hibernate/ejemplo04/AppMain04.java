@@ -36,14 +36,15 @@ public class AppMain04 {
 
             Address address1 = new Address( "12th Avenue", "12A" );
             Address address2 = new Address( "18th Avenue", "18B" );
-
+            sessionObj.save( address1);
+            sessionObj.save( address2);
             person1.getAddresses().add( address1 );
             person1.getAddresses().add( address2 );
 
             person2.getAddresses().add( address1 );
 
-            sessionObj.persist( person1 );
-            sessionObj.persist( person2 );
+            sessionObj.save( person1 );
+            sessionObj.save( person2 );
 
             sessionObj.flush();
 
