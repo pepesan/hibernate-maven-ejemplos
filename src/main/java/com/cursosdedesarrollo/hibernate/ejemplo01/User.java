@@ -1,5 +1,6 @@
 package com.cursosdedesarrollo.hibernate.ejemplo01;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_table")
-public class User {
+public class User implements Serializable {
 
     @Id
     @Column(name = "user_id")
@@ -23,6 +24,20 @@ public class User {
 
     @Column(name = "created_date")
     private Date createdDate;
+
+    public User() {
+        this.userid = 0;
+        this.username = "";
+        this.createdBy = "";
+        this.createdDate = new Date();
+    }
+
+    public User(int userid, String username, String createdBy, Date createdDate) {
+        this.userid = userid;
+        this.username = username;
+        this.createdBy = createdBy;
+        this.createdDate = createdDate;
+    }
 
     public int getUserid() {
         return userid;

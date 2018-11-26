@@ -8,6 +8,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+import javax.jws.soap.SOAPBinding;
 import javax.persistence.criteria.CriteriaBuilder;
 
 public class AppMain {
@@ -37,7 +38,7 @@ public class AppMain {
 
             for(int i = 101; i <= 105; i++) {
                 userObj = new User();
-                userObj.setUserid(i);
+                //userObj.setUserid(i);
                 userObj.setUsername("Editor " + i);
                 userObj.setCreatedBy("Administrator");
                 userObj.setCreatedDate(new Date());
@@ -46,13 +47,16 @@ public class AppMain {
                 //sessionObj.persist(userObj);
 
             }
+            //Capturar un objeto por su id
+            User user105=(User) sessionObj.get(User.class,userObj.getUserid());
             System.out.println("\n.......Records Saved Successfully To The Database.......\n");
             //modificación
-            userObj.setUsername("Editor " + 2000);
-            sessionObj.save(userObj);
+            user105.setUsername("Editor " + 2000);
+            sessionObj.save(user105);
+            //JPA merge
             System.out.println("\n.......Record Modified Successfully To The Database.......\n");
             //borrado
-            sessionObj.delete(userObj);
+            sessionObj.delete(user105);
             System.out.println("\n.......Record Deleted Successfully To The Database.......\n");
             User guardado= (User)sessionObj.get(User.class,101);
 

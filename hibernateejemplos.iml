@@ -8,8 +8,8 @@
           <unit-entry name="hibernate01.cfg.xml" value="f94413f3-cdf9-40ca-8c6c-bf1f8c6232c6" />
           <unit-entry name="hibernate02.cfg.xml" value="fc0a5f0a-d4d2-4774-92d0-553f03e67204" />
           <unit-entry name="hibernate04.cfg.xml" value="e2cce176-f3c4-48e3-a3b8-f6a29a3bdad1" />
-          <unit-entry name="hibernate05.cfg.xml" />
-          <unit-entry name="hibernate06.cfg.xml" />
+          <unit-entry name="hibernate05.cfg.xml" value="5fcb806c-244d-4f87-a5e3-ee79e517af95" />
+          <unit-entry name="hibernate06.cfg.xml" value="0106c9ab-b438-44dd-bfac-552f63dd69c0" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate01.cfg.xml" />
