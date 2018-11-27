@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.hibernate.ejemplo05;
+package com.cursosdedesarrollo.hibernate.ejemplo10lombok;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,17 +6,18 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-import java.math.BigDecimal;
+import java.util.Date;
 
-public class AppMain05 {
+public class AppMain10 {
 
+    static User userObj;
     static Session sessionObj;
     static SessionFactory sessionFactoryObj;
 
     private static SessionFactory buildSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
         Configuration configObj = new Configuration();
-        configObj.configure("hibernate05.cfg.xml");
+        configObj.configure("hibernate10.cfg.xml");
 
         // Since Hibernate Version 4.x, ServiceRegistry Is Being Used
         ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();
@@ -32,24 +33,33 @@ public class AppMain05 {
             sessionObj = buildSessionFactory().openSession();
             sessionObj.beginTransaction();
 
-            DebitAccount debitAccount = new DebitAccount();
-            debitAccount.setId( 1L );
-            debitAccount.setOwner( "John Doe" );
-            debitAccount.setBalance( BigDecimal.valueOf( 100 ) );
-            debitAccount.setInterestRate( BigDecimal.valueOf( 1.5d ) );
-            debitAccount.setOverdraftFee( BigDecimal.valueOf( 25 ) );
+            for(int i = 101; i <= 105; i++) {
+                userObj = new User();
+                //userObj.setUserid(i);
+                userObj.setUsername("Editor " + i);
+                userObj.setCreatedBy("Administrator");
+                userObj.setCreatedDate(new Date());
 
-            CreditAccount creditAccount = new CreditAccount();
-            creditAccount.setId( 2L );
-            creditAccount.setOwner( "John Doe" );
-            creditAccount.setBalance( BigDecimal.valueOf( 1000 ) );
-            creditAccount.setInterestRate( BigDecimal.valueOf( 1.9d ) );
-            creditAccount.setCreditLimit( BigDecimal.valueOf( 5000 ) );
+                sessionObj.persist(userObj);
+                //sessionObj.persist(userObj);
 
-            sessionObj.persist( debitAccount );
-            sessionObj.persist( creditAccount );
-
+            }
+            //Capturar un objeto por su id
+            User user105=(User) sessionObj.get(User.class,userObj.getUserid());
             System.out.println("\n.......Records Saved Successfully To The Database.......\n");
+            //modificación
+            user105.setUsername("Editor " + 2000);
+            sessionObj.save(user105);
+            //JPA merge
+            System.out.println("\n.......Record Modified Successfully To The Database.......\n");
+            //borrado
+            sessionObj.delete(user105);
+            System.out.println("\n.......Record Deleted Successfully To The Database.......\n");
+            User guardado= (User)sessionObj.get(User.class,101);
+
+            System.out.println("\n Dato Guardado: "+guardado+"\n");
+
+            
 
             // Committing The Transactions To The Database
             sessionObj.getTransaction().commit();

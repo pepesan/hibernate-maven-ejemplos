@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.hibernate.ejemplo02;
+package com.cursosdedesarrollo.hibernate.ejemplo02onetooneuni;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

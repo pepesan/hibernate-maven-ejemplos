@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.hibernate.ejemplo04;
+package com.cursosdedesarrollo.hibernate.ejemplo04manytomanyuni;
 
 import javax.persistence.*;
 import java.util.ArrayList;

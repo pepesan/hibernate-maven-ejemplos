@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.hibernate.ejemplo04;
+package com.cursosdedesarrollo.hibernate.ejemplo05herencia;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,7 +6,9 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-public class AppMain04 {
+import java.math.BigDecimal;
+
+public class AppMain05 {
 
     static Session sessionObj;
     static SessionFactory sessionFactoryObj;
@@ -14,7 +16,7 @@ public class AppMain04 {
     private static SessionFactory buildSessionFactory() {
         // Creating Configuration Instance & Passing Hibernate Configuration File
         Configuration configObj = new Configuration();
-        configObj.configure("hibernate04.cfg.xml");
+        configObj.configure("hibernate05.cfg.xml");
 
         // Since Hibernate Version 4.x, ServiceRegistry Is Being Used
         ServiceRegistry serviceRegistryObj = new StandardServiceRegistryBuilder().applySettings(configObj.getProperties()).build();
@@ -30,25 +32,22 @@ public class AppMain04 {
             sessionObj = buildSessionFactory().openSession();
             sessionObj.beginTransaction();
 
+            DebitAccount debitAccount = new DebitAccount();
+            debitAccount.setId( 1L );
+            debitAccount.setOwner( "John Doe" );
+            debitAccount.setBalance( BigDecimal.valueOf( 100 ) );
+            debitAccount.setInterestRate( BigDecimal.valueOf( 1.5d ) );
+            debitAccount.setOverdraftFee( BigDecimal.valueOf( 25 ) );
 
-            Person person1 = new Person();
-            Person person2 = new Person();
+            CreditAccount creditAccount = new CreditAccount();
+            creditAccount.setId( 2L );
+            creditAccount.setOwner( "John Doe" );
+            creditAccount.setBalance( BigDecimal.valueOf( 1000 ) );
+            creditAccount.setInterestRate( BigDecimal.valueOf( 1.9d ) );
+            creditAccount.setCreditLimit( BigDecimal.valueOf( 5000 ) );
 
-            Address address1 = new Address( "12th Avenue", "12A" );
-            Address address2 = new Address( "18th Avenue", "18B" );
-            sessionObj.save( address1);
-            sessionObj.save( address2);
-            person1.getAddresses().add( address1 );
-            person1.getAddresses().add( address2 );
-
-            person2.getAddresses().add( address1 );
-
-            sessionObj.save( person1 );
-            sessionObj.save( person2 );
-
-            sessionObj.flush();
-
-            person1.getAddresses().remove( address1 );
+            sessionObj.persist( debitAccount );
+            sessionObj.persist( creditAccount );
 
             System.out.println("\n.......Records Saved Successfully To The Database.......\n");
 

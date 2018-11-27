@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.hibernate.ejemplo06;
+package com.cursosdedesarrollo.hibernate.ejemplo06namedqueries;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -7,7 +7,6 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
-import javax.persistence.TypedQuery;
 import java.util.Date;
 import java.util.List;
 

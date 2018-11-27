@@ -7,16 +7,24 @@
           <unit-entry name="hibernate.cfg.xml" />
           <unit-entry name="hibernate01.cfg.xml" value="f94413f3-cdf9-40ca-8c6c-bf1f8c6232c6" />
           <unit-entry name="hibernate02.cfg.xml" value="fc0a5f0a-d4d2-4774-92d0-553f03e67204" />
+          <unit-entry name="hibernate03.cfg.xml" value="dd6609a9-969f-4a3d-9386-7fad1fcbaabb" />
           <unit-entry name="hibernate04.cfg.xml" value="e2cce176-f3c4-48e3-a3b8-f6a29a3bdad1" />
           <unit-entry name="hibernate05.cfg.xml" value="5fcb806c-244d-4f87-a5e3-ee79e517af95" />
           <unit-entry name="hibernate06.cfg.xml" value="0106c9ab-b438-44dd-bfac-552f63dd69c0" />
+          <unit-entry name="hibernate08.cfg.xml" value="4c2ce0d4-e0a9-4caa-854a-32c093fe3a13" />
+          <unit-entry name="hibernate09.cfg.xml" value="1fb18dac-000c-4e4e-b579-0e11f8ac3c22" />
+          <unit-entry name="hibernate10.cfg.xml" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate01.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate02.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate03.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate04.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate05.cfg.xml" />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate06.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate08.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate09.cfg.xml" />
+        <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/main/resources/hibernate10.cfg.xml" />
       </configuration>
     </facet>
   </component>

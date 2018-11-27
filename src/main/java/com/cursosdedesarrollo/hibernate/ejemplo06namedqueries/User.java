@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.hibernate.ejemplo06;
+package com.cursosdedesarrollo.hibernate.ejemplo06namedqueries;
 
 import javax.persistence.*;
 import java.util.Date;

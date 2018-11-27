@@ -1,4 +1,4 @@
-package com.cursosdedesarrollo.hibernate.ejemplo05;
+package com.cursosdedesarrollo.hibernate.ejemplo05herencia;
 
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;

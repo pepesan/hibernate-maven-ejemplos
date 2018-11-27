@@ -20,8 +20,8 @@
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 
         <!-- Mapping With Model Class Containing Annotations -->
-        <mapping class="com.cursosdedesarrollo.hibernate.ejemplo05.Account" />
-        <mapping class="com.cursosdedesarrollo.hibernate.ejemplo05.CreditAccount" />
-        <mapping class="com.cursosdedesarrollo.hibernate.ejemplo05.DebitAccount" />
+        <mapping class="com.cursosdedesarrollo.hibernate.ejemplo05herencia.Account" />
+        <mapping class="com.cursosdedesarrollo.hibernate.ejemplo05herencia.CreditAccount" />
+        <mapping class="com.cursosdedesarrollo.hibernate.ejemplo05herencia.DebitAccount" />
     </session-factory>
 </hibernate-configuration>

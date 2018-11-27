@@ -1,22 +1,25 @@
-package com.cursosdedesarrollo.hibernate.ejemplo03;
+package com.cursosdedesarrollo.hibernate.ejemplo04manytomanyuni;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name = "Phone23")
-public class Phone {
+@Entity(name = "Address2")
+public class Address {
 
     @Id
     @GeneratedValue
     private Long id;
 
+    private String street;
+
     @Column(name = "`number`")
     private String number;
 
-    public Phone(String s) {
-        this.number=s;
+    public Address(String s, String s1) {
+        this.street=s;
+        this.number=s1;
     }
 
     //Getters and setters are omitted for brevity
@@ -27,6 +30,14 @@ public class Phone {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getNumber() {

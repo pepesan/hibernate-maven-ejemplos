@@ -1,19 +1,26 @@
-package com.cursosdedesarrollo.hibernate.ejemplo02;
+package com.cursosdedesarrollo.hibernate.ejemplo08manytooneuni;
+
 import javax.persistence.*;
 
-@Entity(name = "phones")
+@Entity(name = "Phone24")
 public class Phone {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @Column(name = "number")
+    @Column(name = "`number`")
     private String number;
 
-    @OneToOne
-    @JoinColumn(name = "details_id")
-    private PhoneDetails details;
+    @ManyToOne
+    @JoinColumn(name = "person_id",
+            foreignKey = @ForeignKey(name = "PERSON_ID_FK")
+    )
+    private Person person;
+
+    public Phone(String number) {
+        this.number = number;
+    }
 
     public Long getId() {
         return id;
@@ -31,12 +38,12 @@ public class Phone {
         this.number = number;
     }
 
-    public PhoneDetails getDetails() {
-        return details;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setDetails(PhoneDetails details) {
-        this.details = details;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
     @Override
@@ -44,7 +51,7 @@ public class Phone {
         return "Phone{" +
                 "id=" + id +
                 ", number='" + number + '\'' +
-                ", details=" + details +
+                ", person=" + person +
                 '}';
     }
 }

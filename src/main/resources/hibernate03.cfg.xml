@@ -20,7 +20,7 @@
         <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property>
 
         <!-- Mapping With Model Class Containing Annotations -->
-        <mapping class="com.cursosdedesarrollo.hibernate.ejemplo03.Phone" />
-        <mapping class="com.cursosdedesarrollo.hibernate.ejemplo03.Person" />
+        <mapping class="com.cursosdedesarrollo.hibernate.ejemplo03onetomanyuni.Phone" />
+        <mapping class="com.cursosdedesarrollo.hibernate.ejemplo03onetomanyuni.Person" />
     </session-factory>
 </hibernate-configuration>
