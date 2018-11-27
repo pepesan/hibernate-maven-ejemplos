@@ -20,6 +20,8 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.47</version>
+            <!-- Versión par mysql 8.0.13 -->
+            <!-- version>8.0.13</version-->
         </dependency>
 
         <dependency>

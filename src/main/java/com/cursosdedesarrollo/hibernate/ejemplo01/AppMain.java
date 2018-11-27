@@ -67,7 +67,7 @@ public class AppMain {
             // Committing The Transactions To The Database
             sessionObj.getTransaction().commit();
         } catch(Exception sqlException) {
-            if(null != sessionObj.getTransaction()) {
+            if(sessionObj!=null && null != sessionObj.getTransaction()) {
                 System.out.println("\n.......Transaction Is Being Rolled Back.......");
                 sessionObj.getTransaction().rollback();
             }
@@ -76,7 +76,7 @@ public class AppMain {
             if(sessionObj != null) {
                 sessionObj.close();
             }
-            if(!sessionFactoryObj.isClosed()){
+            if(sessionFactoryObj!=null && !sessionFactoryObj.isClosed()){
                 sessionFactoryObj.close();
             }
         }
